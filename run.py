@@ -66,7 +66,6 @@ def run_detector(detector, path):
         res_objects.append(object)
 
     time_elapsed = end_time - start_time
-    print('Executed in', time_elapsed)
     gc.collect()
     return img, res_objects, time_elapsed
 
@@ -138,6 +137,6 @@ for j in range(len(CLASSES)):
         #recall - отношение true positives к количеству всех groundtruth объектов данного класса
         precision = matched_count / predictions_count
         recall = matched_count / groundtruth_count
-        print(CLASSES[j] + ": ", 'Precision = ', round(precision, 3), '  Recall = ', round(recall))
+        print(CLASSES[j] + ": ", 'Precision = ', round(precision, 3), '  Recall = ', round(recall, 3))
 
 print('Average time', round(sum(time_array) / len(time_array), 2), 'sec')
